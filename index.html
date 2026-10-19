@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Registrasi Sederhana</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Form Registrasi</h1>
+
+    <form id="form-registrasi" novalidate>
+      <div class="form-group">
+        <label for="nama">Nama Lengkap</label>
+        <div class="input-icon">
+          <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
+          </svg>
+          <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <div class="input-icon">
+          <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <path d="M3 7l9 6 9-6"/>
+          </svg>
+          <input type="text" id="email" name="email" placeholder="contoh@email.com">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <div class="input-icon">
+          <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0V12a9 9 0 1 0-3.5 7.1"/>
+          </svg>
+          <input type="text" id="username" name="username" placeholder="Masukkan username">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-icon">
+          <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="5" y="11" width="14" height="9" rx="2"/>
+            <path d="M8 11V8a4 4 0 0 1 8 0v3"/>
+          </svg>
+          <input type="password" id="password" name="password" placeholder="Minimal 8 karakter">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="konfirmasi">Konfirmasi Password</label>
+        <div class="input-icon">
+          <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          <input type="password" id="konfirmasi" name="konfirmasi" placeholder="Ulangi password">
+        </div>
+      </div>
+
+      <button type="submit" id="btn-daftar">Daftar</button>
+
+      <div id="pesan" class="pesan" role="alert" aria-live="polite"></div>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

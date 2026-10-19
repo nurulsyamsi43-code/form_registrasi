@@ -1,0 +1,216 @@
+/* ===== Reset ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Latar belakang ===== */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Lingkaran warna di belakang kartu */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+body::before {
+  width: 280px;
+  height: 280px;
+  background: #14b8a6;
+  opacity: 0.45;
+  top: -60px;
+  left: -60px;
+}
+
+body::after {
+  width: 320px;
+  height: 320px;
+  background: #6366f1;
+  opacity: 0.5;
+  bottom: -80px;
+  right: -80px;
+}
+
+/* ===== Kartu kaca yang melayang ===== */
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 28px 24px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.45),
+              0 8px 14px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.4),
+              inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+  animation: muncul 0.6s ease;
+}
+
+@keyframes muncul {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== Form ===== */
+.form-group {
+  margin-bottom: 14px;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 6px;
+}
+
+/* ===== Ikon di dalam kolom ===== */
+.input-icon {
+  position: relative;
+}
+
+.ikon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.7);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+  transition: stroke 0.2s;
+}
+
+.input-icon:focus-within .ikon {
+  stroke: #5eead4;
+}
+
+/* ===== Kolom input cekung ===== */
+input {
+  width: 100%;
+  padding: 11px 13px 11px 42px;
+  font-size: 0.95rem;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.4),
+              inset -2px -2px 6px rgba(255, 255, 255, 0.1);
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+input:focus {
+  outline: none;
+  border-color: #5eead4;
+  box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.4),
+              inset -2px -2px 6px rgba(255, 255, 255, 0.1),
+              0 0 0 3px rgba(94, 234, 212, 0.3);
+}
+
+/* ===== Tombol 3D ===== */
+button {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #14b8a6, #6366f1);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s;
+  box-shadow: 0 5px 0 #3730a3,
+              0 10px 18px rgba(0, 0, 0, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 #3730a3,
+              0 14px 22px rgba(0, 0, 0, 0.45),
+              inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* Tombol turun saat ditekan */
+button:active {
+  transform: translateY(5px);
+  box-shadow: 0 0 0 #3730a3,
+              0 2px 6px rgba(0, 0, 0, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* ===== Pesan validasi ===== */
+.pesan {
+  display: none;
+  margin-top: 16px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.pesan.error {
+  display: block;
+  color: #fecaca;
+  background: rgba(239, 68, 68, 0.25);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  animation: getar 0.4s ease;
+}
+
+.pesan.sukses {
+  display: block;
+  color: #bbf7d0;
+  background: rgba(34, 197, 94, 0.25);
+  border: 1px solid rgba(34, 197, 94, 0.5);
+  animation: muncul 0.4s ease;
+}
+
+@keyframes getar {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
